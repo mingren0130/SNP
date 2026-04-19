@@ -1,89 +1,95 @@
 # 📘 README
 
-## 📂 專案說明
-本專案用於處理基因序列資料，流程包含：
-1. 原始序列整理  
-2. 序列比對（Alignment）  
-3. SNP 資料生成  
+## 📂 Project Overview
+This project is designed to process genomic sequence data, including:
+1. Raw sequence preparation  
+2. Sequence alignment  
+3. SNP generation  
 
 ---
 
-## 📁 資料結構
+## 📁 Directory Structure
 
 project/
 │
-├── TestData/        # 原始序列資料
-├── aligned/         # 已完成比對的序列（可直接使用）
-├── aligned.sh       # 批次比對腳本（使用 MAFFT）
-├── SNP.py           # SNP 生成程式
+├── TestData/        # Raw sequence data
+├── aligned/         # Aligned sequences (can be used directly)
+├── aligned.sh       # Batch alignment script (uses MAFFT)
+├── SNP.py           # SNP generation script
 └── README.md
 
 ---
 
-## ⚙️ 環境需求
+## ⚙️ Requirements
 
-請先安裝 MAFFT
+Please install MAFFT before running this project.
 
-### 安裝方式（範例）
+### Installation Examples
 
-Linux / WSL：
+Linux / WSL:
 sudo apt-get install mafft
 
-Mac：
+Mac:
 brew install mafft
 
 ---
 
-## 🚀 使用流程
+## 🚀 Workflow
 
-### 🔹 Step 1：準備資料
-將原始序列檔案放入：
+### 🔹 Step 1: Prepare Data
+Place your raw sequence files in:
 
 TestData/
 
 ---
 
-### 🔹 Step 2：序列比對（Alignment）
+### 🔹 Step 2: Sequence Alignment
 
-有兩種方式：
+There are two options:
 
-方法一：使用腳本（推薦）
+#### ✅ Option 1: Use the script (Recommended)
 
 bash aligned.sh
 
-👉 會自動將 TestData/ 內的檔案做 MAFFT 比對  
-👉 輸出結果會放到 aligned/
+👉 This will automatically perform MAFFT alignment on files in TestData/  
+👉 Output will be saved in aligned/  
 
-方法二：直接使用已比對資料
+---
+
+#### ✅ Option 2: Use pre-aligned data
+
+You can directly use the files inside:
 
 aligned/
 
 ---
 
-### 🔹 Step 3：產生 SNP 資料
+### 🔹 Step 3: Generate SNP Data
+
+Run the SNP script:
 
 python SNP.py
 
-👉 會將 aligned/ 裡的資料轉換為 SNP 格式  
+👉 This will convert files in aligned/ into SNP format  
 
 ---
 
-## 📌 補充說明
+## 📌 Notes
 
-- aligned/ 資料夾為後續分析的主要輸入來源  
-- 若資料量大，建議先完成 alignment 再進行 SNP 分析  
-- aligned.sh 需搭配 MAFFT 使用，未安裝將無法執行  
+- The aligned/ folder is the main input for downstream analysis  
+- For large datasets, it is recommended to complete alignment first  
+- aligned.sh requires MAFFT to function properly  
 
 ---
 
-## 🧠 流程概念（簡單版）
+## 🧠 Pipeline Overview
 
-TestData (原始資料)
+TestData (raw data)
         ↓
 MAFFT (aligned.sh)
         ↓
-aligned (比對結果)
+aligned (alignment results)
         ↓
 SNP.py
         ↓
-SNP 資料
+SNP data
