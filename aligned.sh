@@ -11,7 +11,7 @@ for file_path in "$INPUT_DIR"/*.faa; do
 
     filename=$(basename "$file_path")
 
-    output_path="$OUTPUT_DIR/mu_$filename"
+    output_path="$OUTPUT_DIR/$filename"
 
     echo "Processing with MAFFT...: $file_path"
     
